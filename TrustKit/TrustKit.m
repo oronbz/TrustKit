@@ -40,12 +40,7 @@ static TrustKit *sharedTrustKit;
 // A shared hash cache for use by all TrustKit instances
 static TSKSPKIHashCache *sharedHashCache;
 
-// Default logger block: only log in debug builds and add TrustKit at the beginning of the line
-#if DEBUG
-void (^_loggerBlock)(NSString *) = ^void(NSString *message) { NSLog(@"=== TrustKit: %@", message); };
-#else
 void (^_loggerBlock)(NSString *) = NULL;
-#endif
 
 // The logging function we use within TrustKit
 void TSKLog(NSString *format, ...)
